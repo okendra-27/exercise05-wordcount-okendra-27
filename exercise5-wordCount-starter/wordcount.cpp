@@ -22,7 +22,6 @@ int main() {
     string word;
 
     while (inFile >> word) {
-        // convert to lowercase
         for (char &c : word) {
             c = tolower(static_cast<unsigned char>(c));
         }
@@ -30,7 +29,6 @@ int main() {
         times[word]++;
     }
 
-    // move map into vector for sorting
     vector<pair<string, int>> items(times.begin(), times.end());
 
     sort(items.begin(), items.end(),
@@ -38,7 +36,6 @@ int main() {
              return a.second > b.second;   // sort by timesuency descending
          });
 
-    // print top 10
     for (int i = 0; i < 10 && i < items.size(); i++) {
         cout << (i + 1) << ". "
              << items[i].first << ": "
